@@ -1,0 +1,12 @@
+*.iml
+.gradle
+/local.properties
+.idea/*
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+/build/
+/android_wondershoplib-release.v3.10.8
+Debug/
+app/release
