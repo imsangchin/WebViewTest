@@ -8,8 +8,10 @@ import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -63,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
         webView.getSettings().setUseWideViewPort(true);  // 웹뷰가 html의 viewport 메타 태그를 지원
         webView.getSettings().setLoadWithOverviewMode(true);  // 웹뷰가 html 컨텐츠가 웹뷰보다 클 경우 스크린 크기에 맞게 조정
 
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return super.shouldOverrideUrlLoading(view, request);
+            }
+        });
 
         //자바스크립트 브릿지
         webView.addJavascriptInterface(new JavaScriptInterface(), JAVASCRIPT_OBJ);
