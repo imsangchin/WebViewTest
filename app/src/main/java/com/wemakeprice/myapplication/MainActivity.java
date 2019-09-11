@@ -8,6 +8,8 @@ import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -69,6 +71,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 return super.shouldOverrideUrlLoading(view, request);
+            }
+        });
+
+        webView.setWebChromeClient(new WebChromeClient() {
+            /**
+             * 아래 코드를 추가해야 javascript alert 표시됨
+             */
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+                return super.onJsAlert(view, url, message, result);
             }
         });
 
