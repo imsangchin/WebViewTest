@@ -1,0 +1,9 @@
+
+$ cd /var/lib/jenkins
+
+$ sudo wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+$ sudo tar zxvf android-sdk_r24.4.1-linux.tgz
+
+$ sudo rm android-sdk_r24.4.1-linux.tgz
+
+$ cd android-sdk-linux/tools
